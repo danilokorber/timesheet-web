@@ -1,0 +1,31 @@
+server {
+    listen       8080;
+
+    location / {
+        root      /usr/share/nginx/html;
+        index     index.html;
+
+        # Client-side routing with vaadin-router requires nginx to fallback
+        # to index.html for any route that it is not able to resolve.
+        try_files ${DOLLAR}uri ${DOLLAR}uri/ /index.html;
+    }
+
+    # Using nginx as a reverse proxy to pass the request to the backend-server
+    # The REST API of the backend-server can be configured using the env-var REST_API_URL.
+    # see https://linuxize.com/post/nginx-reverse-proxy/
+    #
+    # Atention: $server_port is the port *inside* the container,
+    # this may differ from the mapped port (docker -p option)!
+    #
+    location /api/ {
+        proxy_buffering off;
+        proxy_pass ${REST_API_URL};
+        # These settings are needed in a local docker setup. In Openshift, the load balancer (service)
+        # already adds the correct "Forwarded" and "X-Forwarded-*" headers
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header X-Forwarded-Host  $host;
+        # proxy_set_header X-Forwarded-Port 80;
+        proxy_read_timeout 30s;
+        proxy_set_header X-Forwarded-Port  $server_port;  # DO NOT USE IN AZURE!
+  }
+}

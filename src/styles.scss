@@ -1,1 +1,74 @@
-/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:ital,wght@0,400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Oxanium:wght@400;700&display=swap");
+@import "../node_modules/primeicons/primeicons.css";
+@import "../node_modules/ng-zorro-antd/ng-zorro-antd.min.css";
+
+* {
+  font-family: "Oxanium", sans-serif;
+}
+
+.digital {
+  font-family: "Orbitron", "Oxanium", sans-serif;
+}
+
+.container {
+  @apply w-screen h-screen flex flex-col gap-8;
+  @apply bg-gradient-to-b from-slate-300 via-slate-300 to-slate-400;
+  @apply text-slate-800;
+}
+
+input,
+select,
+textarea {
+  @apply py-1 px-2;
+  @apply rounded-sm;
+  @apply drop-shadow hover:drop-shadow-md;
+  @apply text-gray-800 caret-gray-800;
+  @apply outline-none border border-gray-400;
+  @apply bg-gray-100 focus:bg-gray-50;
+}
+
+button {
+  @apply px-4 py-2;
+  @apply rounded-lg drop-shadow-xl;
+  @apply bg-opacity-25;
+
+  &.btn {
+    @apply bg-gradient-to-b;
+    @apply from-slate-700 to-slate-800;
+    @apply text-slate-50;
+
+    &:disabled {
+      @apply from-slate-300 to-slate-300;
+      @apply drop-shadow-none;
+    }
+
+    &.danger {
+      @apply from-red-700 to-red-800;
+    }
+  }
+
+  &.time {
+    @apply w-36 h-36;
+    @apply bg-gradient-to-b;
+
+    > i {
+      @apply text-6xl;
+    }
+
+    &.time-start {
+      @apply from-green-500 via-green-400 to-green-500;
+    }
+    &.time-end {
+      @apply from-red-500 via-red-400 to-red-500;
+    }
+  }
+}
+
+.z-1200 {
+  z-index: 1200;
+}
