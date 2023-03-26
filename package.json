@@ -1,6 +1,37 @@
 {
   "name": "timesheet",
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "jenkins": {
+    "urls": [
+      {
+        "host": "schusters",
+        "domain": "korber.com.br",
+        "service": "schuster"
+      }
+    ],
+    "traefik": {
+      "resolver": "easywareresolver"
+    },
+    "nexus": {
+      "hostname": "nexus.easyware.io",
+      "hostedPort": 8083,
+      "groupPort": 8082,
+      "imageGroup": "easyware"
+    },
+    "docker": {
+      "labels": "./config/dockerLabels.txt",
+      "network": "easyware"
+    },
+    "nginx": {
+      "env": {
+        "api": "https://schuster-api.korber.com.br"
+      }
+    },
+    "sonar": {
+      "host": "https://sonar.easyware.io",
+      "properties": "./config/sonar.properties"
+    }
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -10,22 +41,29 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "^15.2.0",
-    "@angular/common": "^15.2.0",
-    "@angular/compiler": "^15.2.0",
-    "@angular/core": "^15.2.0",
-    "@angular/forms": "^15.2.0",
-    "@angular/platform-browser": "^15.2.0",
-    "@angular/platform-browser-dynamic": "^15.2.0",
-    "@angular/router": "^15.2.0",
+    "@angular/animations": "^15.2.4",
+    "@angular/common": "^15.2.4",
+    "@angular/compiler": "^15.2.4",
+    "@angular/core": "^15.2.4",
+    "@angular/forms": "^15.2.4",
+    "@angular/platform-browser": "^15.2.4",
+    "@angular/platform-browser-dynamic": "^15.2.4",
+    "@angular/pwa": "^15.2.4",
+    "@angular/router": "^15.2.4",
+    "@ngrx/effects": "^15.4.0",
+    "@ngrx/store": "^15.4.0",
+    "ng-zorro-antd": "^15.0.3",
+    "primeicons": "^6.0.1",
+    "primeng": "^15.2.1",
     "rxjs": "~7.8.0",
+    "tailwindcss": "^3.2.7",
     "tslib": "^2.3.0",
-    "zone.js": "~0.12.0"
+    "zone.js": "^0.12.0"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^15.2.4",
     "@angular/cli": "~15.2.4",
-    "@angular/compiler-cli": "^15.2.0",
+    "@angular/compiler-cli": "^15.2.4",
     "@types/jasmine": "~4.3.0",
     "jasmine-core": "~4.5.0",
     "karma": "~6.4.0",
