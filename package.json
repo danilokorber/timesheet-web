@@ -37,7 +37,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "sonar": "sonar-scanner -Dproject.settings=./config/sonar.properties"
   },
   "private": true,
   "dependencies": {
