@@ -7,6 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DialogModule } from 'primeng/dialog';
 
+import { ServiceWorkerModule } from '@angular/service-worker';
 import { TodayRedux } from './redux/today/today.redux';
 import { TimesheetState } from './redux/timesheet.state';
 import { Store, StoreModule } from '@ngrx/store';
@@ -41,6 +42,13 @@ export const STEMPEL: string = '5318';
     EffectsModule.forRoot([]),
     DialogModule,
     TableModule,
+
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: true,
+      // Register the ServiceWorker as soon as the application is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000',
+    }),
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'de' },
