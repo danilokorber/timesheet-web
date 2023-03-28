@@ -42,7 +42,6 @@ export const STEMPEL: string = '5318';
     EffectsModule.forRoot([]),
     DialogModule,
     TableModule,
-
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: true,
       // Register the ServiceWorker as soon as the application is stable
