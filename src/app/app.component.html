@@ -7,10 +7,20 @@
     </div>
   </div>
   <div class="mx-auto flex flex-row gap-4">
-    <button class="time time-start" type="button" (click)="start()">
+    <button
+      class="time time-start"
+      type="button"
+      aria-label="Kommen"
+      (click)="start()"
+    >
       <i class="pi pi-sign-in"></i>
     </button>
-    <button class="time time-end" type="button" (click)="end()">
+    <button
+      class="time time-end"
+      type="button"
+      aria-label="Gehen"
+      (click)="end()"
+    >
       <i class="pi pi-sign-out"></i>
     </button>
   </div>
@@ -34,8 +44,15 @@
     </div>
   </div>
   <div class="mx-auto flex flex-row gap-4">
-    <button class="btn" type="button">{{ previousMonth }}</button>
-    <button class="btn" type="button" (click)="this.currentVisible = true">
+    <button class="btn" aria-label="previousMonth" type="button">
+      {{ previousMonth }}
+    </button>
+    <button
+      class="btn"
+      aria-label="currentMonth"
+      type="button"
+      (click)="this.currentVisible = true"
+    >
       {{ currentMonth }}
     </button>
   </div>
@@ -61,10 +78,19 @@
       <input class="flex-1 w-1/3 text-center" formControlName="end" />
     </div>
     <div class="flex flex-row gap-2">
-      <button class="mx-auto btn danger" (click)="deleteVisible = true">
+      <button
+        class="mx-auto btn danger"
+        aria-label="Löschen"
+        (click)="deleteVisible = true"
+      >
         Löschen
       </button>
-      <button class="mx-auto btn" type="submit" [disabled]="form.invalid">
+      <button
+        class="mx-auto btn"
+        aria-label="Speichern"
+        type="submit"
+        [disabled]="form.invalid"
+      >
         Speichern
       </button>
     </div>
@@ -82,8 +108,12 @@
   }"
 >
   <div class="flex flex-row gap-2">
-    <button class="mx-auto btn danger" (click)="onDelete()">Ja</button>
-    <button class="mx-auto btn" (click)="onDeleteCancel()">Nein</button>
+    <button class="mx-auto btn danger" aria-label="Ja" (click)="onDelete()">
+      Ja
+    </button>
+    <button class="mx-auto btn" aria-label="Nein" (click)="onDeleteCancel()">
+      Nein
+    </button>
   </div>
 </p-dialog>
 
