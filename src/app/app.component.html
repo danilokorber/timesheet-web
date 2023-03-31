@@ -38,11 +38,16 @@
   </div>
 
   <div class="flex flex-col flex-1 gap-2 mx-auto">
+    <div class="mx-auto text-xl">Wochenkonto</div>
+    <div class="mx-auto digital text-4xl">
+      {{ (state$ | async)?.week?.totalDuration }}
+    </div>
     <div class="mx-auto text-xl">Stundenkonto {{ currentMonth }}</div>
     <div class="mx-auto digital flex-1 text-4xl">
       {{ (state$ | async)?.current?.totalDuration }}
     </div>
   </div>
+
   <div class="mx-auto flex flex-row gap-4">
     <button class="btn" aria-label="previousMonth" type="button">
       {{ previousMonth }}

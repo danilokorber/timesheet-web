@@ -24,6 +24,8 @@ import localeDe from '@angular/common/locales/de';
 registerLocaleData(localeDe);
 
 import { NZ_I18N, de_DE } from 'ng-zorro-antd/i18n';
+import { REPORT_WEEK } from './redux/week/week.actions';
+import { WeekRedux } from './redux/week/week.redux';
 
 export const STEMPEL: string = '5318';
 
@@ -39,6 +41,7 @@ export const STEMPEL: string = '5318';
     StoreModule.forRoot({}, {}),
     TodayRedux,
     CurrentRedux,
+    WeekRedux,
     EffectsModule.forRoot([]),
     DialogModule,
     TableModule,
@@ -59,5 +62,6 @@ export class AppModule {
   constructor(private store: Store<TimesheetState>) {
     store.dispatch(TIMESHEET_TODAY({ employeeId: STEMPEL }));
     store.dispatch(TIMESHEET_CURRENT({ employeeId: STEMPEL }));
+    store.dispatch(REPORT_WEEK({ employeeId: STEMPEL }));
   }
 }

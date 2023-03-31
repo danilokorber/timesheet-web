@@ -8,7 +8,6 @@ import { TodayEffect } from './today.effect';
 @NgModule({
   declarations: [],
   imports: [
-    CommonModule,
     StoreModule.forFeature('today', todayReducer),
     EffectsModule.forFeature([TodayEffect]),
   ],

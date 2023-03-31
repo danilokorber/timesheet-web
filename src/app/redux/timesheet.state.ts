@@ -14,5 +14,6 @@ export interface TimeRecordReport {
 export interface TimesheetState {
   previous?: TimeRecordReport;
   current?: TimeRecordReport;
+  week?: TimeRecordReport;
   today?: TimeRecordReport;
 }

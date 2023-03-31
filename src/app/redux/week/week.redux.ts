@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { StoreModule } from '@ngrx/store';
-import { currentReducer } from './current.reducer';
+import { WEEK_REDUCER } from './week.reducer';
 import { EffectsModule } from '@ngrx/effects';
-import { CurrentEffect } from './current.effect';
+import { WeekEffect } from './week.effect';
 
 @NgModule({
   declarations: [],
   imports: [
-    StoreModule.forFeature('current', currentReducer),
-    EffectsModule.forFeature([CurrentEffect]),
+    StoreModule.forFeature('week', WEEK_REDUCER),
+    EffectsModule.forFeature([WeekEffect]),
   ],
 })
-export class CurrentRedux {}
+export class WeekRedux {}
